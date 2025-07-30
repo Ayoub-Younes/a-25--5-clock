@@ -1,3 +1,4 @@
+
 const App = () => {
 
     const [breakLength,setBreakLength] = React.useState("5");
@@ -5,6 +6,24 @@ const App = () => {
     const [time,setTime] = React.useState("25:00");
     const [states,setStates] = React.useState({timer:false, session:"Session", newSession: false});
 
+    React.useEffect(() => {
+        const img = document.getElementById('background-img');
+
+        const showContent = () => {
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+        };
+
+        if (img && img.complete) {
+        showContent();
+        } else if (img) {
+        img.onload = showContent;
+        }
+
+        const fallback = setTimeout(showContent, 3000); 
+
+        return () => clearTimeout(fallback);
+    }, []);    
 
     React.useEffect(() => {
         const beep = document.getElementById("beep");
@@ -68,7 +87,6 @@ const App = () => {
     }
 
     return (
-        
         <div className="container">
             <p>25 + 5 Clock</p>
             <div className="session-setup">

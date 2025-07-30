@@ -16,89 +16,120 @@
 }
 
 html {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   font-family: "Anton";
   font-size: 1em;
 }
 
 
 body {
-  position: absolute;
-  width: 1540px;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
+  font-size: 0.95em;
   overflow: hidden;
-  align-items: center;
-  text-align: center;
 }
 
+
+body.loading {
+  display: none;
+}
+
+body.loaded {
+  display: block;
+}
+
+.wrapper {
+  box-shadow: 0px 0px 1000px 2000px #000000c6;
+  width: 1140px;
+  height: 640px;
+  margin: auto;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transform-origin: top left;
+}
+
+#background-img-2 {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  z-index: -2;
+  opacity: 0.7;
+  background: linear-gradient(120deg, rgb(210,169,111), rgb(255,255,255, 0.5));
+}
 
 .background {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  width: 1540px;
-  height: 710px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 0;
 }
 
-.logo {
-  width: 120px;
-  height: auto;
-  margin: 0 auto;
-  opacity: 0.7;
-}
 
 .container {
-  float: right;
+  position: absolute;
+  top: 45px;
+  right: 20px;
   background-color: #141414;
   border: 2px solid;;
   border-color:  #FFFFFF;
   box-shadow: 2px 2px 8px black;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   flex-wrap: wrap;
-  padding: 0 ;
-  width: 600px;
-  height: 600px;
-  margin-right:100px;
-  margin-top:-50px;
+  width: 550px;
+  height: 550px;
   align-items: center;
   justify-content: center;
-  border-radius:50%;
+  text-align: center;
+  border-radius: 50%;
 }
+
 
 .container p {
+  position: absolute;
+  top: 40px;
   color: rgb(246,231,200, 0.7);
   font-size: 3em;
-  margin-top: -20px;
-  margin-bottom: 20px;
-
 }
 
-.session-setup{
+.session-setup {
+  position: absolute;
+  top: 140px;
   display: flex;
+  gap: 20px;
+  font-size: 1.5em;
+
 }
 
 .session {
+  width: 200px;
   display: flex;
   flex-direction: column;
-  width: 200px;
   align-content: center;
   justify-content: space-between;
   border-radius: 30px;
-  margin: 20px 20px;
   padding: 20px;
   word-break:break-all;
   background: linear-gradient(120deg, rgb(210,169,111), rgb(255,255,255, 0.5));
   border: 2px solid #FFFFFF;
-  font-size: 1.5rem;
-
 }
 
 .timer {
-  margin-top: 50px;
+  display: flex;
+  position: absolute;
+  font-size: 1.5em;
+  top: 300px;
   width: 250px;
+  height: 200px;
+
 }
 
 .control {
@@ -140,3 +171,4 @@ button .material-icons {
   margin-top: 5px;
   font-size: 40px;
 }
+  
